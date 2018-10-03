@@ -30,7 +30,7 @@ namespace BankKataTests
         {
             _account.Deposite(1000);
             _account.Withdraw(100);
-            _account.Deposite(400);
+            _account.Deposite(500);
 
             _account.PrintStatement();
 
