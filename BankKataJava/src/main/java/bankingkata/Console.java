@@ -1,4 +1,4 @@
-package bankingkata.feature;
+package bankingkata;
 
 public class Console {
 

@@ -1,4 +1,4 @@
-package bankingkata.feature;
+package bankingkata;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -9,6 +9,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import bankingkata.Account;
+import bankingkata.Console;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PrintStatementFeatureTest {
