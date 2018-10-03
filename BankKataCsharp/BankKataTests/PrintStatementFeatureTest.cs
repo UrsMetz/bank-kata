@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using BankKata;
 using Moq;
 using Xunit;
@@ -9,9 +10,18 @@ namespace BankKataTests
         private readonly Mock<IConsole> _consoleMock;
         private readonly Account _account;
 
+        private readonly IList<string> _printedConsoleStatements;
+
         public PrintStatementFeatureTest()
         {
-            _consoleMock = new Mock<IConsole>();
+            // Moq hat leider keine (elegante) Möglichkeit die Reihenfolge von Aufrufen zu prüfen,
+            // daher machen wir das "zu Fuß"
+            _printedConsoleStatements = new List<string>();
+
+            _consoleMock = new Mock<IConsole>(MockBehavior.Strict);
+            _consoleMock.Setup(x => x.PrintLine(It.IsAny<string>()))
+                .Callback((string text) => _printedConsoleStatements.Add(text));
+
             _account = new Account();
         }
 
@@ -24,10 +34,13 @@ namespace BankKataTests
 
             _account.PrintStatement();
 
-            _consoleMock.Verify(x => x.PrintLine("DATE | AMOUNT | BALANCE"));
-            _consoleMock.Verify(x => x.PrintLine("10/04/2014 | 500.00 | 1400.00"));
-            _consoleMock.Verify(x => x.PrintLine("02/04/2014 | -100.00| 900.00"));
-            _consoleMock.Verify(x => x.PrintLine("01/04/2014 | 1000.00| 1000.00"));
+            Assert.Equal(new[]
+            {
+                "DATE | AMOUNT | BALANCE",
+                "10/04/2014 | 500.00 | 1400.00",
+                "02/04/2014 | -100.00 | 900.00",
+                "01/04/2014 | 1000.00 | 1000.00"
+            }, _printedConsoleStatements);
         }
     }
 }
