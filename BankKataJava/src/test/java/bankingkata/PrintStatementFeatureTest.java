@@ -8,9 +8,6 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import bankingkata.Account;
-import bankingkata.Console;
-
 @RunWith(MockitoJUnitRunner.class)
 public class PrintStatementFeatureTest {
 
@@ -27,16 +24,16 @@ public class PrintStatementFeatureTest {
     @Test
     public void printStatementContainingAllTransactions() {
         account.deposit(1000);
-        account.withdraw(600);
-        account.deposit(750);
+        account.withdraw(100);
+        account.deposit(500);
 
         account.printStatement();
 
         InOrder inOrder = Mockito.inOrder(console);
         inOrder.verify(console).printLine("DATE | AMOUNT | BALANCE");
-        inOrder.verify(console).printLine("03.04.2018 | +750,00 | 1150,00");
-        inOrder.verify(console).printLine("01.04.2018 | -600,00 | 400,00");
-        inOrder.verify(console).printLine("30.03.2018 | +1000,00 | 1000,00");
+        inOrder.verify(console).printLine("10/04/2014 | 500.00 | 1400.00");
+        inOrder.verify(console).printLine("02/04/2014 | -100.00 | 900.00");
+        inOrder.verify(console).printLine("01/04/2014 | 1000.00 | 1000.00");
     }
 
 }

@@ -5,16 +5,16 @@ A kata for practising TDD outside-in, inspired by Sandro Macuso [2], see also [1
 ## Starting point and constraints
 
 1. Start with a class implementing the Account interface
-    
+
     ```
     public class Account {
 
       public void deposit(int amount) {}
-    
+
       public void withdraw(int amount) {}
 
       public void printStatement() {}
-      
+
     }
     ```
 
@@ -32,10 +32,10 @@ Your task is to implement the following functionality:
 
 **Example:**
 ```
-DATE       | AMOUNT  | BALANCE 
-03.04.2018 | +750,00 | 1150,00 
-01.04.2018 | -600,00 | 400,00 
-30.03.2018 | +1000,00 | 1000,00 
+DATE       | AMOUNT  | BALANCE
+10/04/2014 |  500.00 | 1400.00
+02/04/2014 | -100.00 |  900.00
+01/04/2014 | 1000.00 | 1000.00
 ```
 
 ## TDD outside-in
