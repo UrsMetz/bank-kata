@@ -1,6 +1,6 @@
 # Bank kata
 
-A kata for practising TDD outside-in, inspired by Sandro Macuso [2], see also [1].
+A kata for practising TDD outside-in, inspired by Sandro Macuso [[2]], see also [[3]].
 
 ## Starting point and constraints
 
@@ -60,5 +60,9 @@ After writing a failing test (in particular, a failing acceptance test), we must
 ## References
 
 * [1]: Steve Freeman, Nat Pryce, Growing Object-Oriented Software, Guided by Tests
-* [2]: Bank kata by Sandro Macuso, https://github.com/sandromancuso/Bank-kata
-* [3]: http://kata-log.rocks/banking-kata
+
+* [2] [Bank kata by Sandro Macuso][2]   
+  [2]: https://github.com/sandromancuso/Bank-kata
+  
+* [3]  [Kata-log][3]  
+  [3]: http://kata-log.rocks/banking-kata
