@@ -2,13 +2,16 @@ package bankingkata;
 
 public class Account {
 
-    public void deposit(int amount) {
+    public void withdraw(int amount) {
+        throw new UnsupportedOperationException("not implemented yet");
     }
 
-    public void withdraw(int amount) {
+    public void deposit(int amount) {
+        throw new UnsupportedOperationException("not implemented yet");
     }
 
     public void printStatement() {
+        throw new UnsupportedOperationException("not implemented yet");
     }
 
 }
