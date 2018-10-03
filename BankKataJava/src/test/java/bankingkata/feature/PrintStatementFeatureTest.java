@@ -11,7 +11,7 @@ import org.mockito.junit.MockitoJUnitRunner;
 import bankingkata.Account;
 
 @RunWith(MockitoJUnitRunner.class)
-public class PrintStatementFeature {
+public class PrintStatementFeatureTest {
 
     @Mock
     private Console console;
@@ -24,7 +24,7 @@ public class PrintStatementFeature {
     }
 
     @Test
-    public void print_statement_containing_all_transactions() {
+    public void printStatementContainingAllTransactions() {
         account.deposit(1000);
         account.withdraw(600);
         account.deposit(750);
