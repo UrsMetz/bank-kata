@@ -18,9 +18,9 @@ A kata for practising TDD outside-in, inspired by Sandro Macuso [2], see also [3
     }
     ```
 
-2. You may not change the interface and may not add other public methods to this class
-3. Keep it simple: Use Strings for dates and integers for amounts
-4. Don't worry about spacing in the statement printed to the console
+2. You may not change the interface and may not add other public methods to this class.
+3. Keep it simple: Use Strings for dates and integers for amounts.
+4. Don't worry about spacing in the statement printed to the console.
 
 ## Acceptance criterion
 
