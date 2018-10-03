@@ -59,6 +59,6 @@ After writing a failing test (in particular, a failing acceptance test), we must
 
 ## References
 
-[1] Steve Freeman, Nat Pryce, Growing Object-Oriented Software, Guided by Tests
-[2] Bank kata by Sandro Macuso, https://github.com/sandromancuso/Bank-kata
-[3] http://kata-log.rocks/banking-kata
+* [1]: Steve Freeman, Nat Pryce, Growing Object-Oriented Software, Guided by Tests
+* [2]: Bank kata by Sandro Macuso, https://github.com/sandromancuso/Bank-kata
+* [3]: http://kata-log.rocks/banking-kata
