@@ -1,5 +1,7 @@
 package bankingkata;
 
+import static org.mockito.Mockito.when;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -8,17 +10,29 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import bankingkata.transactions.TransactionFactory;
+import bankingkata.transactions.TransactionLog;
+
 @RunWith(MockitoJUnitRunner.class)
 public class PrintStatementFeatureTest {
 
     @Mock
     private Console console;
 
+    @Mock
+    private Clock clock;
+
     private Account account;
 
     @Before
     public void before() {
-        account = new Account();
+        when(clock.getDate()).thenReturn("01/04/2014", "02/04/2014", "10/04/2014");
+        TransactionFactory transactionFactory = new TransactionFactory(clock);
+        TransactionLog transactionLog = new TransactionLog(transactionFactory);
+        StatementLinePrinter statementLinePrinter = new StatementLinePrinter(console);
+        StatementPrinter statementPrinter = new StatementPrinter(console, statementLinePrinter);
+
+        account = new Account(transactionLog, statementPrinter);
     }
 
     @Test

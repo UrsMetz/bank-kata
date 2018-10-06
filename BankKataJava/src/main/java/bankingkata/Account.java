@@ -1,17 +1,27 @@
 package bankingkata;
 
+import bankingkata.transactions.TransactionLog;
+
 public class Account {
 
+    private TransactionLog transactionLog;
+    private StatementPrinter printer;
+
+    public Account(TransactionLog transactionLog, StatementPrinter printer) {
+        this.transactionLog = transactionLog;
+        this.printer = printer;
+    }
+
     public void withdraw(int amount) {
-        throw new UnsupportedOperationException("not implemented yet");
+        transactionLog.addWithdrawalTransaction(amount);
     }
 
     public void deposit(int amount) {
-        throw new UnsupportedOperationException("not implemented yet");
+        transactionLog.addDepositTransaction(amount);
     }
 
     public void printStatement() {
-        throw new UnsupportedOperationException("not implemented yet");
+        printer.print(transactionLog.allTransactions());
     }
 
 }
