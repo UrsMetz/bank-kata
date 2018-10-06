@@ -1,6 +1,5 @@
-package bankingkata.transactions;
+package bankingkata.account;
 
-import bankingkata.Clock;
 import org.hamcrest.FeatureMatcher;
 import org.hamcrest.Matcher;
 import org.junit.jupiter.api.BeforeEach;
@@ -9,8 +8,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static bankingkata.transactions.TransactionType.DEPOSIT;
-import static bankingkata.transactions.TransactionType.WITHDRAWAL;
+import static bankingkata.account.TransactionType.DEPOSIT;
+import static bankingkata.account.TransactionType.WITHDRAWAL;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.mockito.Mockito.when;

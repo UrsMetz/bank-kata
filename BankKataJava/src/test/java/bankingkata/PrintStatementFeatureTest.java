@@ -1,9 +1,9 @@
 package bankingkata;
 
+import bankingkata.account.*;
+import bankingkata.statement.Console;
+import bankingkata.statement.ReverseOrderStatementPrinter;
 import bankingkata.statement.StatementLinePrinter;
-import bankingkata.statement.StatementPrinter;
-import bankingkata.transactions.TransactionFactory;
-import bankingkata.transactions.TransactionLog;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -31,7 +31,7 @@ public class PrintStatementFeatureTest {
         TransactionFactory transactionFactory = new TransactionFactory(clock);
         TransactionLog transactionLog = new TransactionLog(transactionFactory);
         StatementLinePrinter statementLinePrinter = new StatementLinePrinter(console);
-        StatementPrinter statementPrinter = new StatementPrinter(console, statementLinePrinter);
+        StatementPrinter statementPrinter = new ReverseOrderStatementPrinter(statementLinePrinter);
 
         account = new Account(transactionLog, statementPrinter);
     }

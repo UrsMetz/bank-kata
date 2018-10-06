@@ -1,7 +1,7 @@
 package bankingkata.statement;
 
-import bankingkata.Console;
-import bankingkata.transactions.Transaction;
+import bankingkata.account.StatementPrinter;
+import bankingkata.account.Transaction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -10,18 +10,15 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static bankingkata.account.TransactionType.DEPOSIT;
+import static bankingkata.account.TransactionType.WITHDRAWAL;
 import static bankingkata.statement.StatementLine.statementLine;
-import static bankingkata.transactions.TransactionType.DEPOSIT;
-import static bankingkata.transactions.TransactionType.WITHDRAWAL;
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
-public class StatementPrinterTest {
-
-    @Mock
-    private Console console;
+public class ReverseOrderStatementPrinterTest {
 
     @Mock
     private StatementLinePrinter statementLinePrinter;
@@ -29,15 +26,15 @@ public class StatementPrinterTest {
     private StatementPrinter printer;
 
     @BeforeEach
-    public void inialize() {
-        printer = new StatementPrinter(console, statementLinePrinter);
+    public void initialize() {
+        printer = new ReverseOrderStatementPrinter(statementLinePrinter);
     }
 
     @Test
     public void printsHeading_forEmptyTransactionList() throws Exception {
         printer.print(emptyList());
 
-        verify(console).printLine("DATE | AMOUNT | BALANCE");
+        verify(statementLinePrinter).printHeading();
     }
 
     @Test

@@ -1,4 +1,4 @@
-package bankingkata.transactions;
+package bankingkata.account;
 
 public enum TransactionType {
     WITHDRAWAL, DEPOSIT

@@ -1,6 +1,6 @@
 package bankingkata.statement;
 
-import bankingkata.transactions.Transaction;
+import bankingkata.account.Transaction;
 
 public class StatementLine {
 

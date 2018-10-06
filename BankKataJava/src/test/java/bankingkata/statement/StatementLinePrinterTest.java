@@ -1,18 +1,15 @@
 package bankingkata.statement;
 
-import static bankingkata.statement.StatementLine.statementLine;
-import static bankingkata.transactions.TransactionType.DEPOSIT;
-import static bankingkata.transactions.TransactionType.WITHDRAWAL;
-import static org.mockito.Mockito.verify;
-
-
+import bankingkata.account.Transaction;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-
-import bankingkata.Console;
-import bankingkata.transactions.Transaction;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import static bankingkata.account.TransactionType.DEPOSIT;
+import static bankingkata.account.TransactionType.WITHDRAWAL;
+import static bankingkata.statement.StatementLine.statementLine;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 public class StatementLinePrinterTest {

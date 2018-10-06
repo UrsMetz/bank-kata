@@ -1,4 +1,4 @@
-package bankingkata.transactions;
+package bankingkata.account;
 
 import static java.util.Collections.unmodifiableList;
 

@@ -1,7 +1,5 @@
-package bankingkata;
+package bankingkata.account;
 
-import bankingkata.statement.StatementPrinter;
-import bankingkata.transactions.TransactionLog;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

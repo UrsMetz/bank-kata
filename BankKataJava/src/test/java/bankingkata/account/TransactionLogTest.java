@@ -1,4 +1,4 @@
-package bankingkata.transactions;
+package bankingkata.account;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -6,8 +6,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static bankingkata.transactions.TransactionType.DEPOSIT;
-import static bankingkata.transactions.TransactionType.WITHDRAWAL;
+import static bankingkata.account.TransactionType.DEPOSIT;
+import static bankingkata.account.TransactionType.WITHDRAWAL;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
 import static org.mockito.Mockito.verify;
