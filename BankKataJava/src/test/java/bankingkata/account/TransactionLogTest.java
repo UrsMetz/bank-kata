@@ -1,7 +1,7 @@
-package bankingkata.transactions;
+package bankingkata.account;
 
-import static bankingkata.transactions.TransactionType.DEPOSIT;
-import static bankingkata.transactions.TransactionType.WITHDRAWAL;
+import static bankingkata.account.TransactionType.DEPOSIT;
+import static bankingkata.account.TransactionType.WITHDRAWAL;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.contains;
 import static org.mockito.Mockito.verify;
@@ -12,6 +12,10 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
+
+import bankingkata.account.Transaction;
+import bankingkata.account.TransactionFactory;
+import bankingkata.account.TransactionLog;
 
 @RunWith(MockitoJUnitRunner.class)
 public class TransactionLogTest {

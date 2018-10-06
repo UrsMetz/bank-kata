@@ -1,6 +1,6 @@
 package bankingkata.statement;
 
-import bankingkata.Console;
+import static java.lang.String.format;
 
 public class StatementLinePrinter {
 
@@ -12,7 +12,11 @@ public class StatementLinePrinter {
 
     public void print(StatementLine line) {
         String formatted = "%s | %d.00 | %d.00";
-        console.printLine(String.format(formatted, line.getDate(), line.getAmount(), line.getRunningBalance()));
+        console.printLine(format(formatted, line.getDate(), line.getAmount(), line.getRunningBalance()));
+    }
+
+    public void printHeading() {
+        console.printLine("DATE | AMOUNT | BALANCE");
     }
 
 }

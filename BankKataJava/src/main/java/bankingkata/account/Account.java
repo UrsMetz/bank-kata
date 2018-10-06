@@ -1,7 +1,4 @@
-package bankingkata;
-
-import bankingkata.statement.StatementPrinter;
-import bankingkata.transactions.TransactionLog;
+package bankingkata.account;
 
 public class Account {
 

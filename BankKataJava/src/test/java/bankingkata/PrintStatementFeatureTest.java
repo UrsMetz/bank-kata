@@ -10,10 +10,14 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import bankingkata.account.Account;
+import bankingkata.account.Clock;
+import bankingkata.account.StatementPrinter;
+import bankingkata.account.TransactionFactory;
+import bankingkata.account.TransactionLog;
+import bankingkata.statement.Console;
 import bankingkata.statement.StatementLinePrinter;
-import bankingkata.statement.StatementPrinter;
-import bankingkata.transactions.TransactionFactory;
-import bankingkata.transactions.TransactionLog;
+import bankingkata.statement.ReverseOrderStatementPrinter;
 
 @RunWith(MockitoJUnitRunner.class)
 public class PrintStatementFeatureTest {
@@ -32,7 +36,7 @@ public class PrintStatementFeatureTest {
         TransactionFactory transactionFactory = new TransactionFactory(clock);
         TransactionLog transactionLog = new TransactionLog(transactionFactory);
         StatementLinePrinter statementLinePrinter = new StatementLinePrinter(console);
-        StatementPrinter statementPrinter = new StatementPrinter(console, statementLinePrinter);
+        StatementPrinter statementPrinter = new ReverseOrderStatementPrinter(statementLinePrinter);
 
         account = new Account(transactionLog, statementPrinter);
     }

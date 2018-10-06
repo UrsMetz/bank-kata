@@ -1,4 +1,4 @@
-package bankingkata;
+package bankingkata.account;
 
 import static org.mockito.Mockito.verify;
 
@@ -7,9 +7,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-
-import bankingkata.statement.StatementPrinter;
-import bankingkata.transactions.TransactionLog;
 
 @RunWith(MockitoJUnitRunner.class)
 public class AccountTest {

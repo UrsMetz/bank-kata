@@ -1,6 +1,6 @@
-package bankingkata.transactions;
+package bankingkata.account;
 
-import static bankingkata.transactions.TransactionType.DEPOSIT;
+import static bankingkata.account.TransactionType.DEPOSIT;
 
 public class Transaction {
 

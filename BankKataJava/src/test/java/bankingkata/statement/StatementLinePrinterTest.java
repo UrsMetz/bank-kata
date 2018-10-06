@@ -1,8 +1,8 @@
 package bankingkata.statement;
 
+import static bankingkata.account.TransactionType.DEPOSIT;
+import static bankingkata.account.TransactionType.WITHDRAWAL;
 import static bankingkata.statement.StatementLine.statementLine;
-import static bankingkata.transactions.TransactionType.DEPOSIT;
-import static bankingkata.transactions.TransactionType.WITHDRAWAL;
 import static org.mockito.Mockito.verify;
 
 import org.junit.Test;
@@ -10,8 +10,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import bankingkata.Console;
-import bankingkata.transactions.Transaction;
+import bankingkata.account.Transaction;
 
 @RunWith(MockitoJUnitRunner.class)
 public class StatementLinePrinterTest {

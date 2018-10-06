@@ -1,8 +1,8 @@
 package bankingkata.statement;
 
+import static bankingkata.account.TransactionType.DEPOSIT;
+import static bankingkata.account.TransactionType.WITHDRAWAL;
 import static bankingkata.statement.StatementLine.statementLine;
-import static bankingkata.transactions.TransactionType.DEPOSIT;
-import static bankingkata.transactions.TransactionType.WITHDRAWAL;
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
 import static org.mockito.Mockito.verify;
@@ -15,14 +15,11 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import bankingkata.Console;
-import bankingkata.transactions.Transaction;
+import bankingkata.account.StatementPrinter;
+import bankingkata.account.Transaction;
 
 @RunWith(MockitoJUnitRunner.class)
-public class StatementPrinterTest {
-
-    @Mock
-    private Console console;
+public class ReverseOrderStatementPrinterTest {
 
     @Mock
     private StatementLinePrinter statementLinePrinter;
@@ -31,14 +28,14 @@ public class StatementPrinterTest {
 
     @Before
     public void inialize() {
-        printer = new StatementPrinter(console, statementLinePrinter);
+        printer = new ReverseOrderStatementPrinter(statementLinePrinter);
     }
 
     @Test
     public void printsHeading_forEmptyTransactionList() throws Exception {
         printer.print(emptyList());
 
-        verify(console).printLine("DATE | AMOUNT | BALANCE");
+        verify(statementLinePrinter).printHeading();
     }
 
     @Test

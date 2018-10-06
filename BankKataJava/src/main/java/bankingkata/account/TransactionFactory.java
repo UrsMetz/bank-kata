@@ -1,9 +1,7 @@
-package bankingkata.transactions;
+package bankingkata.account;
 
-import static bankingkata.transactions.TransactionType.DEPOSIT;
-import static bankingkata.transactions.TransactionType.WITHDRAWAL;
-
-import bankingkata.Clock;
+import static bankingkata.account.TransactionType.DEPOSIT;
+import static bankingkata.account.TransactionType.WITHDRAWAL;
 
 public class TransactionFactory {
 
