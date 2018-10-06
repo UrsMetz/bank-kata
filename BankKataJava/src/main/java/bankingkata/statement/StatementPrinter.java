@@ -1,11 +1,12 @@
-package bankingkata;
+package bankingkata.statement;
+
+import static bankingkata.statement.StatementLine.statementLine;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
+import bankingkata.Console;
 import bankingkata.transactions.Transaction;
 
 public class StatementPrinter {
@@ -21,16 +22,17 @@ public class StatementPrinter {
     public void print(List<Transaction> allTransactions) {
         console.printLine("DATE | AMOUNT | BALANCE");
 
+        List<StatementLine> lines = new ArrayList<>();
+
         int runningBalance = 0;
-        Map<Transaction, Integer> runningBalances = new HashMap<>();
         for (Transaction transaction : allTransactions) {
             runningBalance += transaction.getAmount();
-            runningBalances.put(transaction, runningBalance);
+            lines.add(statementLine(transaction, runningBalance));
         }
-        List<Transaction> reversedList = new ArrayList<>(allTransactions);
-        Collections.reverse(reversedList);
-        for (Transaction transaction : reversedList) {
-            statementLinePrinter.print(transaction, runningBalances.get(transaction));
+
+        Collections.reverse(lines);
+        for (StatementLine line : lines) {
+            statementLinePrinter.print(line);
         }
     }
 

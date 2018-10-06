@@ -1,5 +1,6 @@
-package bankingkata;
+package bankingkata.statement;
 
+import static bankingkata.statement.StatementLine.statementLine;
 import static bankingkata.transactions.TransactionType.DEPOSIT;
 import static bankingkata.transactions.TransactionType.WITHDRAWAL;
 import static org.mockito.Mockito.verify;
@@ -9,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import bankingkata.Console;
 import bankingkata.transactions.Transaction;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -21,7 +23,7 @@ public class StatementLinePrinterTest {
     public void printDepositTransaction() throws Exception {
         StatementLinePrinter linePrinter = new StatementLinePrinter(console);
 
-        linePrinter.print(new Transaction(DEPOSIT, 100, "05/10/2018"), 500);
+        linePrinter.print(statementLine(new Transaction(DEPOSIT, 100, "05/10/2018"), 500));
 
         verify(console).printLine("05/10/2018 | 100.00 | 500.00");
     }
@@ -30,7 +32,7 @@ public class StatementLinePrinterTest {
     public void printWithdrawalTransaction() throws Exception {
         StatementLinePrinter linePrinter = new StatementLinePrinter(console);
 
-        linePrinter.print(new Transaction(WITHDRAWAL, 100, "05/10/2018"), 500);
+        linePrinter.print(statementLine(new Transaction(WITHDRAWAL, 100, "05/10/2018"), 500));
 
         verify(console).printLine("05/10/2018 | -100.00 | 500.00");
     }

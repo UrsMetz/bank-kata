@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import bankingkata.statement.StatementPrinter;
 import bankingkata.transactions.TransactionLog;
 
 @RunWith(MockitoJUnitRunner.class)

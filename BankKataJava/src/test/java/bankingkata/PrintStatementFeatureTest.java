@@ -10,6 +10,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import bankingkata.statement.StatementLinePrinter;
+import bankingkata.statement.StatementPrinter;
 import bankingkata.transactions.TransactionFactory;
 import bankingkata.transactions.TransactionLog;
 

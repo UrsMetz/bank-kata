@@ -1,5 +1,6 @@
 package bankingkata;
 
+import bankingkata.statement.StatementPrinter;
 import bankingkata.transactions.TransactionLog;
 
 public class Account {
