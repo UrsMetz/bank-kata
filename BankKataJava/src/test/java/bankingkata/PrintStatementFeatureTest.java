@@ -1,5 +1,7 @@
 package bankingkata;
 
+import bankingkata.transactions.TransactionFactory;
+import bankingkata.transactions.TransactionLog;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -8,17 +10,28 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static org.mockito.Mockito.when;
+
 @ExtendWith(MockitoExtension.class)
 public class PrintStatementFeatureTest {
 
     @Mock
     private Console console;
 
+    @Mock
+    private Clock clock;
+
     private Account account;
 
     @BeforeEach
     public void before() {
-        account = new Account();
+        when(clock.getDate()).thenReturn("01/04/2014", "02/04/2014", "10/04/2014");
+        TransactionFactory transactionFactory = new TransactionFactory(clock);
+        TransactionLog transactionLog = new TransactionLog(transactionFactory);
+        StatementLinePrinter statementLinePrinter = new StatementLinePrinter(console);
+        StatementPrinter statementPrinter = new StatementPrinter(console, statementLinePrinter);
+
+        account = new Account(transactionLog, statementPrinter);
     }
 
     @Test
