@@ -1,21 +1,21 @@
-package bankingkata;
+package bankingkata.statement;
 
-import static bankingkata.transactions.TransactionType.DEPOSIT;
-import static java.util.Arrays.asList;
-import static java.util.Collections.emptyList;
-import static org.mockito.Mockito.verify;
-
+import bankingkata.Console;
+import bankingkata.transactions.Transaction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
-
-import bankingkata.transactions.Transaction;
-import bankingkata.transactions.TransactionType;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import static bankingkata.statement.StatementLine.statementLine;
+import static bankingkata.transactions.TransactionType.DEPOSIT;
+import static bankingkata.transactions.TransactionType.WITHDRAWAL;
+import static java.util.Arrays.asList;
+import static java.util.Collections.emptyList;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 public class StatementPrinterTest {
@@ -47,30 +47,30 @@ public class StatementPrinterTest {
         printer.print(asList(singleTransaction));
 
         int runningBalance = 100;
-        verify(statementLinePrinter).print(singleTransaction, runningBalance);
+        verify(statementLinePrinter).print(statementLine(singleTransaction, runningBalance));
     }
 
     @Test
     public void computesRunningBalance() throws Exception {
         Transaction first = new Transaction(DEPOSIT, 150, "05/10/2018");
-        Transaction second = new Transaction(TransactionType.WITHDRAWAL, 300, "06/10/2018");
+        Transaction second = new Transaction(WITHDRAWAL, 300, "06/10/2018");
 
         printer.print(asList(first, second));
 
-        verify(statementLinePrinter).print(first, 150);
-        verify(statementLinePrinter).print(second, 150 - 300);
+        verify(statementLinePrinter).print(statementLine(first, 150));
+        verify(statementLinePrinter).print(statementLine(second, 150 - 300));
     }
 
     @Test
     public void printsTransactionsInReverseChronologicalOrder() throws Exception {
         Transaction first = new Transaction(DEPOSIT, 150, "05/10/2018");
-        Transaction second = new Transaction(TransactionType.WITHDRAWAL, 300, "06/10/2018");
+        Transaction second = new Transaction(WITHDRAWAL, 300, "06/10/2018");
 
         printer.print(asList(first, second));
 
         InOrder inOrder = Mockito.inOrder(statementLinePrinter);
-        inOrder.verify(statementLinePrinter).print(second, 150 - 300);
-        inOrder.verify(statementLinePrinter).print(first, 150);
+        inOrder.verify(statementLinePrinter).print(statementLine(second, 150 - 300));
+        inOrder.verify(statementLinePrinter).print(statementLine(first, 150));
     }
 
 }

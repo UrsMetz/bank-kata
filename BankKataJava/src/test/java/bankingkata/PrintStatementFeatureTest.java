@@ -1,5 +1,7 @@
 package bankingkata;
 
+import bankingkata.statement.StatementLinePrinter;
+import bankingkata.statement.StatementPrinter;
 import bankingkata.transactions.TransactionFactory;
 import bankingkata.transactions.TransactionLog;
 import org.junit.jupiter.api.BeforeEach;
