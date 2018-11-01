@@ -4,7 +4,7 @@ namespace BankKata
 {
     public class Account
     {
-        public void Deposite(int amount)
+        public void Deposit(int amount)
         {
             throw new NotImplementedException();
         }

@@ -28,9 +28,9 @@ namespace BankKataTests
         [Fact]
         public void PrintsRunningBalanceOfAllTransactions()
         {
-            _account.Deposite(1000);
+            _account.Deposit(1000);
             _account.Withdraw(100);
-            _account.Deposite(500);
+            _account.Deposit(400);
 
             _account.PrintStatement();
 
